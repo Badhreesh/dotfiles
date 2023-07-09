@@ -1,0 +1,1 @@
+vim.g and vim.opt r meta accessors, which call lower level lua funcns that call the vim api to set key bindings and options for vim.
