@@ -1,0 +1,6 @@
+local builtin = require('telescope.builtin')
+vim.keymap.set('n', '<leader>pf', builtin.find_files, {desc = "Find all files in Project"})
+vim.keymap.set('n', '<C-p>', builtin.git_files, {desc = "Find files in Project that are tracked by git"})
+vim.keymap.set('n', '<leader>ps', function()
+  builtin.grep_string({ search = vim.fn.input("Grep > ") })
+end, {desc = "Search for a term in a Project"})
