@@ -23,6 +23,7 @@ opt.splitbelow = true -- force all horizontal splits to go below current window
 opt.splitright = true -- force all vertical splits to go below current window
 opt.numberwidth = 2 -- set number column width to 2 (default is 4)
 opt.cursorline = true -- highlight the current line
+opt.foldmethod = "indent" -- auto fold based on indents
 
 -- Use vim.cmd to run vimscript
 -- Make - as part of a keyword. This makes it easier to navigate words and edit them. asdf-asdf will now be deleted as one word. To revert, set iskeyword-=-

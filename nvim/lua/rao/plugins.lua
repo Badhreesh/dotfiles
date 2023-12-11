@@ -51,7 +51,7 @@ return require('packer').startup(function(use)
     use { "catppuccin/nvim", as = "catppuccin" }
     use { "doums/darcula", as = "darcula" }
     use { "rebelot/kanagawa.nvim", as = "kanagawa" }
-    use { "sainnhe/everforest", as = "everforest" }
+    use { "folke/tokyonight.nvim", as = "tokyonight" }
     use { "sainnhe/gruvbox-material", as = "gruvbox-material" }
 
     use {
@@ -63,7 +63,7 @@ return require('packer').startup(function(use)
     }
     use {
         'VonHeikemen/lsp-zero.nvim',
-        branch = 'v2.x',
+        branch = 'v3.x',
         requires = {
             -- LSP Support
             {'neovim/nvim-lspconfig'},             -- Required

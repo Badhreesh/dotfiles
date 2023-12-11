@@ -1,0 +1,23 @@
+:Git = git status
+:Git help = help
+- = add to/remove from staging
+V - = add/remove multiple lines to/from staging
+= = inline presentation of the commit
+= <CR> = open file in new buffer
+:Gvdiff = Vertical split diff
+:Gdiff = Horizontal split diff
+:Gvdiff <branch> - Vertical branch comparison
+]c = jump to next change (Requires remapping in gitsigns config)
+[c = jump to previous change (Requires remapping in gitsigns config)
+:Gwrite = git add <filename>
+:Gread = git reset
+:Git log = git log
+:Git blame = an interactive blame buffer
+:Git commit = can be followed by other flags (like -m)
+
+:Telescope git_status = status in a fuzzy searcher
+:Telescope git_commit = git log
+
+:Gitsigns blame_line = blame in a box
+:Gitsigns toggle_signs = remove git signs (for focus mode)
+

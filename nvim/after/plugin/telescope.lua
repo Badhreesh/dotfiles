@@ -1,14 +1,14 @@
+local actions = require("telescope.actions")
 local builtin = require('telescope.builtin')
+vim.keymap.set('n', '<leader>ob',builtin.buffers, {desc = 'Display Open Buffers'})
 vim.keymap.set('n', '<leader>ff',":lua require('telescope.builtin').find_files({ hidden = true })<CR>", {desc = 'Find all files including hidden ones'}) -- Mapping is different as I needed to pass hidden=true to func
-vim.keymap.set('n', '<leader>ob',builtin.buffers, {desc = 'Display open buffers'})
-vim.keymap.set('n', '<C-p>', builtin.git_files, {desc = 'Find files tracked by git'})
-vim.keymap.set('n', '<leader>sf', builtin.live_grep, {desc = 'Search files for a word'})
-vim.keymap.set('n', '<leader>fw', builtin.grep_string, {desc = 'Find usages of a word in files'})
+vim.keymap.set('n', '<leader>gf', builtin.git_files, {desc = 'Find files tracked by Git'})
+vim.keymap.set('n', '<leader>ss', builtin.live_grep, {desc = 'Search for a String'})
+vim.keymap.set('n', '<leader>sf', builtin.grep_string, {desc = 'Search Files for usages of a word'})
 
 require('telescope').setup{
   defaults = {
     file_ignore_patterns = {"venv", "__pycache__"},
-    initial_mode = "normal",
     -- Default configuration for telescope goes here:
     -- config_key = value,
     mappings = {
@@ -17,10 +17,11 @@ require('telescope').setup{
         -- actions.which_key shows the mappings for your picker,
         -- e.g. git_{create, delete, ...}_branch for the git_branches picker
         ["<C-h>"] = "which_key",
-        ["<C-d>"] = require('telescope.actions').delete_buffer
+        -- ["<C-d>"] = actions.delete_buffer,
+        ["<esc>"] = actions.close -- Quit in insert mode
       },
       n = {
-        ["<C-d>"] = require('telescope.actions').delete_buffer
+        -- ["<C-d>"] = require('telescope.actions').delete_buffer
       }
     }
   },

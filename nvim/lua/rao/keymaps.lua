@@ -12,11 +12,12 @@ local set = vim.keymap.set
 set('n', '<leader>w', ':w<CR>', {desc = 'Save changes'}) -- Use space + w to save changes
 set({'n', 'x'}, 'cp', '"+y', {desc = 'Copy to clipboard'})
 set({'n', 'x'}, 'cv', '"+p', {desc = 'Paste from clipboard'})
-set('n', 're', ':so<CR>', {desc = 'reload config'})
 
+set('i', '<C-l>', '<Esc>w', {desc = 'evim version of exiting insert mode. Also go to next word.'})
 set({'n', 'x'}, 'x', '"_x', {desc = 'Do not change internal registers when deleting text'})
 set('n', '<C-d>', '<C-d>zz', {desc = 'Move down and keep cursor centered'})
 set('n', '<C-u>', '<C-u>zz', {desc = 'Move up and keep cursor centered'})
+set('n', '<C-o>', '<C-o>zz', {desc = 'Move to previous jump and keep cursor centered'})
 set("n", "J", "mzJ`z", {desc = 'Take the line below you and append to current line with a space, while keeping cursor in place'})
 
 set('n', 'cw', 'ciw', {desc = 'Change whole word no matter where cursor is on that word'})
