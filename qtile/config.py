@@ -1,9 +1,12 @@
+import os
 import subprocess
 
-from libqtile import bar, layout, widget
+from libqtile import bar, hook, layout
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
+
+from widgets import get_widgets_for_laptop, get_widgets_for_monitor
 
 mod = "mod1"
 terminal = "gnome-terminal" # guess_terminal()
@@ -52,7 +55,14 @@ keys = [
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
     Key([mod, "control"] , "f", lazy.spawn("rofi -show drun"), desc="Launch rofi"),
     Key([mod], "b", lazy.spawn(browser), desc="Launch browser"),
-
+    
+    # Brightness
+    Key([mod], "F5",
+        lazy.spawn("brightnessctl set 10%-"),
+        desc="Decrease the brightness"),
+    Key([mod], "F6",
+        lazy.spawn("brightnessctl set 10%+"),
+        desc="Increase the brightness"),
     # todo: Make dedicated set of keymaps for rofi
 
     # Extend to a second monitor
@@ -104,73 +114,12 @@ layouts = [
 ]
 
 widget_defaults = dict(
-    font="sans",
+    font="JetBrains Mono",
     fontsize=14,
     padding=3,
 )
 extension_defaults = widget_defaults.copy()
 
-
-colours = [
-    ["#1f2329", "#1f2329"],  # Background
-    ["#dcdcdc", "#dcdcdc"],  # Foreground
-    ["#535965", "#535965"],  # Grey Colour
-    ["#e55561", "#e55561"],
-    ["#54f542", "#54f542"],
-    ["#e2b86b", "#e2b86b"],
-    ["#4fa6ed", "#4fa6ed"],
-    ["#bf68d9", "#bf68d9"],
-    ["#48b0bd", "#48b0bd"],
-    ["#eff542", "#eff542"] # yellow
-]
-def get_widgets_for_bar():
-    seperator = widget.Sep(foreground=colours[2], linewidth=1, padding=10)
-    widgets = [
-            widget.Image(filename="~/.config/qtile/python-logo.png",
-                     mouse_callbacks={
-                         "Button1": lazy.next_layout(),
-                         }
-                     ),
-            seperator,
-            widget.GroupBox(disable_drag=True, highlight_method="line"),
-            seperator,
-            widget.CurrentLayoutIcon(),
-            widget.CurrentLayout(),
-            # seperator,
-            #  widget.Prompt(),
-            seperator,
-            widget.WindowName(),
-            seperator,
-            widget.Chord(
-                chords_colors={
-                    "launch": ("#ff0000", "#ffffff"),
-                },
-                name_transform=lambda name: name.upper(),
-            ),
-            widget.Systray(),
-            seperator,
-            widget.PulseVolume(foreground=colours[6], fmt="墳 {}", volume_app="pactl", step=5),
-                           # volume_up_command="pactl set-sink-volume @DEFAULT_SINK@ +10%",
-                           # volume_down_command="pactl set-sink-volume @DEFAULT_SINK@ -10%"),
-            seperator,
-            widget.Battery(
-                foreground=colours[4], # Green
-                format="{char} {percent:2.0%}",
-                charge_char=" ",
-                discharge_char=" ",
-                empty_char=" ",
-                full_char=" ",
-                unknown_char=" ",
-                low_foreground=colours[3], # Red Background color on low battery
-                low_percentage=0.15, # Show low_forground color at 15% battery
-                show_short_text=False,
-                notify_below=15),
-            seperator,
-            widget.Clock(format="%Y-%m-%d %a %I:%M %p", foreground=colours[7]),
-            seperator,
-            widget.QuickExit()
-            ]
-    return widgets
 
 connected_monitors = subprocess.run(
     "xrandr | busybox grep -w 'connected' | busybox cut -d' ' -f1",
@@ -182,14 +131,14 @@ connected_monitors = subprocess.run(
 external_monitors = connected_monitors.strip().split('\n')[1:] # The first monitor always refers to the laptop screen (eDP)
 
 # todo: Move systray from second monitor to second monitor if available
-laptop_monitor_widgets = get_widgets_for_bar()
-secondary_screen_widgets = laptop_monitor_widgets[:3]
+laptop_monitor_widgets = get_widgets_for_laptop()
+secondary_screen_widgets = get_widgets_for_monitor()
 
 screens = [
     Screen(
         top=bar.Bar(widgets=laptop_monitor_widgets, size=24,
-        wallpaper="/home/rao/Pictures/Wallpapers/Cyberpunk_Edgerunners_Lucy.jpg",
-        wallpaper_mode="fill")
+        wallpaper="/home/rao/Pictures/Wallpapers/Cyberpunk_Edgerunners_Lucy.jpg",)
+        # wallpaper_mode="fill")
     )
 ]
 
@@ -202,11 +151,11 @@ for external_monitor in external_monitors:
             wallpaper_mode="fill")
         )
     # Extend monitor from laptop monitor
-    subprocess.run(f"xrandr --output eDP --primary --auto --output {external_monitor} --right-of eDP --auto" , shell=True)
+    subprocess.run(f"xrandr --output eDP --primary --auto --output {external_monitor} --left-of eDP --auto" , shell=True)
     # Set laptop speaker as default audio sink (Name got from pactl list sinks)
     subprocess.run("pactl set-default-sink alsa_output.pci-0000_04_00.6.analog-stereo", shell=True)
     # Set laptop microphone as default audio source (Name got from pactl list sources)
-    subprocess.run("pactl set-default-source alsa_output.pci-0000_04_00.6.analog-stereo", shell=True)
+    subprocess.run("pactl set-default-source alsa_input.pci-0000_04_00.6.analog-stereo", shell=True)
                 
 # Drag floating layouts.
 mouse = [
@@ -231,6 +180,8 @@ floating_layout = layout.Floating(
         Match(wm_class="ssh-askpass"),  # ssh-askpass
         Match(title="branchdialog"),  # gitk
         Match(title="pinentry"),  # GPG key password entry
+        # Match(wm_class="blueman-manager"),  # GPG key password entry
+        Match(wm_class="Blueman-manager"),  # Bluetooth manager
     ]
 )
 auto_fullscreen = True
@@ -253,3 +204,8 @@ wl_input_rules = None
 # We choose LG3D to maximize irony: it is a 3D non-reparenting WM written in
 # java that happens to be on java's whitelist.
 wmname = "LG3D"
+
+@hook.subscribe.startup_once
+def start_once():
+    home = os.path.expanduser('~')
+    subprocess.call([home + '/.config/qtile/autostart.sh'])
