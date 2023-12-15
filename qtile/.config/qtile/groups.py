@@ -12,7 +12,7 @@ def get_groups() -> list:
                   ),
             Group("teams",
                   layout="max",
-                  matches=[Match(wm_class=["microsoft teams - preview"])]
+                  matches=[Match(wm_class=["Microsoft Teams - Preview"])]
                   ),
             Group("misc", layout="max")
             ]
