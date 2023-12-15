@@ -14,105 +14,114 @@ colours = [
     ["#eff542", "#eff542"] # yellow
 ]
 
+def image() -> widget.Image:
+    return widget.Image(
+            filename="~/.config/qtile/python-logo.png", 
+            mouse_callbacks={"Button1": lazy.next_layout()}
+             )
+
+
+def separator() -> widget.Sep:
+    return widget.Sep(foreground=colours[2], linewidth=1, padding=10)
+
+
+def group_box() -> widget.GroupBox:
+   return widget.GroupBox(disable_drag=True, highlight_method="line")
+
+
+def current_layout_icon() -> widget.CurrentLayoutIcon:
+    return widget.CurrentLayoutIcon()
+
+
+def current_layout() -> widget.CurrentLayout:
+    return widget.CurrentLayout()
+
+
+def window_name() -> widget.WindowName:
+    return widget.WindowName()
+
+
+def systray() -> widget.Systray:
+    return widget.Systray()
+
+
+def pulse_volume() -> widget.PulseVolume:
+    return widget.PulseVolume(foreground=colours[6], fmt="墳 {}", volume_app="pactl", step=5)
+
+
+def brightness() -> widget.Backlight:
+    return widget.Backlight(backlight_name='amdgpu_bl0', change_comand='brightnessctl set {0:.0f}+', fmt='󰃞 : {}')
+
+
+def battery() -> widget.Battery:
+    return widget.Battery(
+            foreground=colours[4], # Green
+            format="{char} {percent:2.0%}",
+            charge_char=" ",
+            discharge_char=" ",
+            empty_char=" ",
+            full_char=" ",
+            unknown_char=" ",
+            low_foreground=colours[3], # Red Background color on low battery
+            low_percentage=0.15, # Show low_forground color at 15% battery
+            show_short_text=False,
+            notify_below=15)
+
+
+def clock() -> widget.Clock:
+    return widget.Clock(format=" %a %b %d %H:%M", foreground=colours[7])
+
+
+def exit() -> widget.QuickExit:
+    return widget.QuickExit()
+
+
 def get_widgets_for_laptop():
-    seperator = widget.Sep(foreground=colours[2], linewidth=1, padding=10)
     widgets = [
-            widget.Image(filename="~/.config/qtile/python-logo.png",
-                     mouse_callbacks={
-                         "Button1": lazy.next_layout(),
-                         }
-                     ),
-            seperator,
-            widget.GroupBox(disable_drag=True, highlight_method="line"),
-            seperator,
-            widget.CurrentLayoutIcon(),
-            widget.CurrentLayout(),
-            # seperator,
-            #  widget.Prompt(),
-            seperator,
-            widget.WindowName(),
-            seperator,
-            widget.Chord(
-                chords_colors={
-                    "launch": ("#ff0000", "#ffffff"),
-                },
-                name_transform=lambda name: name.upper(),
-            ),
-            widget.Systray(),
-            seperator,
-            widget.PulseVolume(foreground=colours[6], fmt="<u>墳 {}</u>", volume_app="pactl", step=5),
-                           # volume_up_command="pactl set-sink-volume @DEFAULT_SINK@ +10%",
-                           # volume_down_command="pactl set-sink-volume @DEFAULT_SINK@ -10%"),
-            seperator,
-            widget.Backlight(backlight_name='amdgpu_bl0', change_comand='brightnessctl set {0:.0f}+', fmt='<u>󰃞 : {}</u>'),
-            seperator,
-            widget.Battery(
-                foreground=colours[4], # Green
-                format="<u>{char} {percent:2.0%}</u>",
-                charge_char=" ",
-                discharge_char=" ",
-                empty_char=" ",
-                full_char=" ",
-                unknown_char=" ",
-                low_foreground=colours[3], # Red Background color on low battery
-                low_percentage=0.15, # Show low_forground color at 15% battery
-                show_short_text=False,
-                notify_below=15),
-            seperator,
-            widget.Clock(format=" %a %b %d %H:%M", foreground=colours[7]),
-            seperator,
-            widget.QuickExit()
+            image(),
+            separator(),
+            group_box(),
+            separator(),
+            current_layout_icon(),
+            current_layout(),
+            separator(),
+            window_name(),
+            separator(),
+            systray(),
+            separator(),
+            pulse_volume(),
+            separator(),
+            brightness(),
+            separator(),
+            battery(),
+            separator(),
+            clock(),
+            separator(),
+            exit()
             ]
     return widgets
 
 
 def get_widgets_for_monitor():
-    seperator = widget.Sep(foreground=colours[2], linewidth=1, padding=10)
     widgets = [
-            widget.Image(filename="~/.config/qtile/python-logo.png",
-                     mouse_callbacks={
-                         "Button1": lazy.next_layout(),
-                         }
-                     ),
-            seperator,
-            widget.GroupBox(disable_drag=True, highlight_method="line"),
-            seperator,
-            widget.CurrentLayoutIcon(),
-            widget.CurrentLayout(),
-            # seperator,
-            #  widget.Prompt(),
-            seperator,
-            widget.WindowName(),
-            seperator,
-            widget.Chord(
-                chords_colors={
-                    "launch": ("#ff0000", "#ffffff"),
-                },
-                name_transform=lambda name: name.upper(),
-            ),
-            seperator,
-            widget.PulseVolume(foreground=colours[6], fmt="<u>墳 {}</u>", volume_app="pactl", step=5),
-                           # volume_up_command="pactl set-sink-volume @DEFAULT_SINK@ +10%",
-                           # volume_down_command="pactl set-sink-volume @DEFAULT_SINK@ -10%"),
-            seperator,
-            widget.Backlight(backlight_name='amdgpu_bl0', change_comand='brightnessctl set {0:.0f}+', fmt='<u>󰃞 : {}</u>'),
-            seperator,
-            widget.Battery(
-                foreground=colours[4], # Green
-                format="<u>{char} {percent:2.0%}</u>",
-                charge_char=" ",
-                discharge_char=" ",
-                empty_char=" ",
-                full_char=" ",
-                unknown_char=" ",
-                low_foreground=colours[3], # Red Background color on low battery
-                low_percentage=0.15, # Show low_forground color at 15% battery
-                show_short_text=False,
-                notify_below=15),
-            seperator,
-            widget.Clock(format=" %a %b %d %H:%M", foreground=colours[7]),
-            seperator,
-            widget.QuickExit()
+            image(),
+            separator(),
+            group_box(),
+            separator(),
+            current_layout_icon(),
+            current_layout(),
+            separator(),
+            window_name(),
+            separator(),
+            pulse_volume(),
+            separator(),
+            brightness(),
+            separator(),
+            battery(),
+            separator(),
+            clock(),
+            separator(),
+            exit()
             ]
     return widgets
 
