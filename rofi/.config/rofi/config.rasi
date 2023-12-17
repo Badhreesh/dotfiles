@@ -1,0 +1,89 @@
+configuration {
+    display-drun: "Applications:";
+    display-window: "Windows:";
+    font: "JetBrainsMono Nerd Font Medium 10";
+    modi: "drun,window";
+    show-icons: true;
+    }
+
+@theme "/dev/null" /* Have entire theme available in this config file */
+
+* {
+  bg: #14141566;
+  bg-alt: #80c6d8;
+  bg-selected: #31324466;
+
+  fg: #cdd6f4;
+  fg-alt: #7f849c;
+  inputbar-fg: #323156;
+
+  
+  border: 0;
+  margin: 0;
+  padding: 0;
+  spacing: 0;
+}
+/* The fields below come from the rofi layout. You can find this in man rofi-theme and searching for /inputbar */
+window {
+  width: 30%;
+  background-color: @bg;
+}
+
+mainbox {
+  children: [inputbar, listview];
+  background-color: @bg;
+}
+
+/* Configure inputbar and its children */
+inputbar {
+  children: [prompt, entry];
+  background-color: @bg;
+}
+
+prompt {
+  enabled: true;
+  padding: 12 0 0 12;
+  background-color: @bg-alt;
+  text-color: @inputbar-fg;
+}
+
+entry {
+  padding: 12;
+  background-color: @bg-alt;
+  text-color: @inputbar-fg;
+}
+
+/* Configure listview and its children */
+listview {
+  background-color: @bg;
+  columns: 1;
+  lines: 10;
+}
+
+element {
+  padding: 8 12;
+  background-color: transparent;
+  text-color: @fg-alt;
+}
+
+element-icon {
+  size: 14;
+  padding: 0 10 0 0;
+  background-color: transparent;
+}
+
+element-text {
+  background-color: transparent;
+  text-color: inherit;
+  vertical-align: 0.5;
+}
+
+element selected {
+  text-color: @fg;
+  background-color: @bg-selected;
+}
+
+
+
+
+
