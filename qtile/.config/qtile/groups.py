@@ -8,7 +8,7 @@ def get_groups() -> list:
                   ),
             Group("dev",
                   layout="columns",
-                  matches=[Match(wm_class=["kitty", "gnome-terminal", "pycharm"])]
+                  matches=[Match(wm_class=["kitty", "Gnome-terminal", "pycharm"])]
                   ),
             Group("teams",
                   layout="max",
