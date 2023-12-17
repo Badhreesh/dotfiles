@@ -1,5 +1,5 @@
 # Dotfiles
-This is a collection of all the dotfiles that configures all the tools that I use for my development environment.
+This is a collection of all the dotfiles that configures the tools that I use for my development environment.
 
 # How to install them
 Clone the repo to home folder (~):
