@@ -46,21 +46,21 @@ def systray() -> widget.Systray:
 
 
 def pulse_volume() -> widget.PulseVolume:
-    return widget.PulseVolume(foreground=colours[6], fmt="墳 {}", volume_app="pactl", step=5)
+    return widget.PulseVolume(foreground=colours[6], fmt="󰕾 {}", volume_app="pactl", step=5)
 
 
 def brightness() -> widget.Backlight:
-    return widget.Backlight(backlight_name='amdgpu_bl0', change_comand='brightnessctl set {0:.0f}+', fmt='󰃞 : {}')
+    return widget.Backlight(backlight_name='amdgpu_bl0', change_comand='brightnessctl set {0:.0f}+', fmt='󰃞 {}')
 
 
 def battery() -> widget.Battery:
     return widget.Battery(
             foreground=colours[4], # Green
-            format="{char} {percent:2.0%}",
-            charge_char=" ",
+            format="{char}{percent:2.0%}",
+            charge_char="󰂄 ",
             discharge_char=" ",
             empty_char=" ",
-            full_char=" ",
+            full_char="󰁹 ",
             unknown_char=" ",
             low_foreground=colours[3], # Red Background color on low battery
             low_percentage=0.15, # Show low_forground color at 15% battery
@@ -69,7 +69,7 @@ def battery() -> widget.Battery:
 
 
 def clock() -> widget.Clock:
-    return widget.Clock(format=" %a %b %d %H:%M", foreground=colours[7])
+    return widget.Clock(format=" %a %b %d %H:%M", foreground=colours[7])
 
 
 def exit() -> widget.QuickExit:

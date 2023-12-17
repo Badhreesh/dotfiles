@@ -30,7 +30,7 @@ for group_id, group in enumerate(groups, 1):
     keys.extend([switch_to_group, switch_and_move_window_to_group])
 
 widget_defaults = dict(
-    font="JetBrains Mono",
+    font="JetBrainsMono Nerd Font",
     fontsize=14,
     padding=3,
 )
