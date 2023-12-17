@@ -16,7 +16,7 @@ colours = [
 
 def image() -> widget.Image:
     return widget.Image(
-            filename="~/.config/qtile/python-logo.png", 
+            filename="~/.config/qtile/ubuntu-logo.png", 
             mouse_callbacks={"Button1": lazy.next_layout()}
              )
 
