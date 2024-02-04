@@ -20,6 +20,10 @@ def get_keys() -> list:
         Key([mod], "k", lazy.layout.up(), desc="Move focus up"),
         Key([mod], "space", lazy.layout.next(), desc="Move window focus to other window"),
 
+        # Focus screen
+        Key([mod], "comma", lazy.prev_screen(), desc="Move focus to previous screen"),
+        Key([mod], "period", lazy.next_screen(), desc="Move focus to next screen"),
+
         # Move window
         Key([mod, "shift"], "h", lazy.layout.shuffle_left(), desc="Move window to the left"),
         Key([mod, "shift"], "l", lazy.layout.shuffle_right(), desc="Move window to the right"),
