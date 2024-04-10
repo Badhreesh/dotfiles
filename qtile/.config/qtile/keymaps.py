@@ -6,7 +6,7 @@ from libqtile.lazy import lazy
 
 load_dotenv()
 
-mod = os.getenv("MOD", "mod1")
+mod = os.getenv("MOD", "mod4")
 terminal = os.getenv("TERMINAL", "gnome-terminal")
 browser = os.getenv("BROWSER", "google-chrome")
 
@@ -52,7 +52,7 @@ def get_keys() -> list:
 
         # Toggles
         # Key([mod], "Tab", lazy.spawn("rofi -show window"), desc="Toggle between windows"),
-        Key([mod], "Tab", lazy.group.next_window(), desc="Focus next window"),
+        Key(["mod1"], "Tab", lazy.group.next_window(), desc="Focus next window"),
         Key([mod], "q", lazy.next_layout(), desc="Toggle between layouts"),
         Key([mod], "t", lazy.window.toggle_floating(), desc="Toggle floating on the focused window"),
 

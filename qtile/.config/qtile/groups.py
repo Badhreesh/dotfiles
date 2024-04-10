@@ -1,7 +1,7 @@
 from libqtile.config import Group, Match
 
 def get_groups() -> list:
-    # You can get the WM_CLASS for an application by typing xpop WM_CLASS and
+    # You can get the WM_CLASS for an application by typing xprop WM_CLASS and
     # then clicking the application window in question.
     groups = [
             Group("web",
