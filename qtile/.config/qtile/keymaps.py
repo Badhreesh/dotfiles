@@ -6,7 +6,7 @@ from libqtile.lazy import lazy
 
 load_dotenv()
 
-mod = os.getenv("MOD", "mod4")
+mod = os.getenv("MOD", "mod1")
 terminal = os.getenv("TERMINAL", "gnome-terminal")
 browser = os.getenv("BROWSER", "google-chrome")
 

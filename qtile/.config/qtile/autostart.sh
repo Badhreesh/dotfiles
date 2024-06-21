@@ -3,4 +3,3 @@
 ### AUTOSTART PROGRAMS ###
 nm-applet &
 blueman-applet &
-teams &

@@ -43,27 +43,25 @@ connected_monitors = subprocess.run(
     text=True
     ).stdout
 
-external_monitors = connected_monitors.strip().split('\n')[1:] # The first monitor always refers to the laptop screen (eDP)
 
 # todo: Move systray from second monitor to second monitor if available
 laptop_monitor_widgets = get_widgets_for_laptop()
 secondary_screen_widgets = get_widgets_for_monitor()
-print(laptop_monitor_widgets)
 home = os.path.expanduser('~')
 
 screens = [
     Screen(
         top=bar.Bar(widgets=laptop_monitor_widgets, size=24, background="#141415"),
-        wallpaper=home + "/.config/qtile/walls/Cyberpunk_Edgerunners_Lucy.jpg",
+        wallpaper=home + "/.config/qtile/walls/Kita_Philosophy.png",
         wallpaper_mode="fill")
 ]
 
-
+external_monitors = connected_monitors.strip().split('\n')[1:] # The first monitor always refers to the laptop screen (eDP)
 for external_monitor in external_monitors:
     screens.append(
         Screen(
             top=bar.Bar(widgets=secondary_screen_widgets, size=24, background="#141415"),
-            wallpaper=home + "/.config/qtile/walls/Cyberpunk_Edgerunners_Lucy.jpg",
+            wallpaper=home + "/.config/qtile/walls/Kita_Philosophy.png",
             wallpaper_mode="fill")
         )
     # Extend monitor from laptop monitor
@@ -72,7 +70,7 @@ for external_monitor in external_monitors:
     subprocess.run("pactl set-default-sink alsa_output.pci-0000_04_00.6.analog-stereo", shell=True)
     # Set laptop microphone as default audio source (Name got from pactl list sources)
     subprocess.run("pactl set-default-source alsa_input.pci-0000_04_00.6.analog-stereo", shell=True)
-                
+ 
 # Drag floating layouts.
 mouse = [
     Drag([mod], "Button1", lazy.window.set_position_floating(), start=lazy.window.get_position()),
