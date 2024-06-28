@@ -1,0 +1,40 @@
+{
+    "workbench.colorTheme": "Best Themes - Gruvbox Dark",
+    "editor.lineNumbers": "relative",
+
+    "vim.leader": "<Space>",
+    "vim.normalModeKeyBindingsNonRecursive": [
+        // NAVIGATION
+        // switch b/w buffers
+        { "before": ["<S-h>"], "commands": [":bprevious"]},
+        { "before": ["<S-l>"], "commands": [":bnext"]},
+        
+        // splits
+        { "before": ["leader", "v"], "commands": [":vsplit"]},
+        { "before": ["leader", "s"], "commands": [":split"]},
+
+        // save and quit
+        { "before": ["leader", "q"], "commands": [":wq"]},
+        // save
+        { "before": ["leader", "w"], "commands": [":w"]},
+        // save without quitting
+        //{ "before": ["leader", "e"], "commands": [":q!"]},
+
+        // jump b/w panes
+        { "before": ["leader", "h"], "commands": ["workbench.action.focusleftgroup"]},
+        { "before": ["leader", "j"], "commands": ["workbench.action.focusbelowgroup"]},
+        { "before": ["leader", "k"], "commands": ["workbench.action.focusabovegroup"]},
+        { "before": ["leader", "l"], "commands": ["workbench.action.focusrightgroup"]},
+
+        //quick open files
+        { "before": ["leader", "f"], "commands": ["workbench.action.quickOpen"]},
+        // toggle comments
+        { "before": ["leader", "c"], "commands": ["editor.action.commentLine"]},
+    ],
+
+    "vim.visualModeKeyBindings": [
+        // toggle comments
+        { "before": ["leader", "c"], "commands": ["editor.action.commentLine"]},
+    ]
+
+}

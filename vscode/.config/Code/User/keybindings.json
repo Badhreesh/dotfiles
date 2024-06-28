@@ -1,0 +1,70 @@
+// Place your key bindings in this file to override the defaults
+[
+    // TERMINAL
+    {
+        "key": "ctrl+shift+j",
+        "command": "workbench.action.terminal.toggleTerminal"
+    },
+    {
+        "key": "ctrl+shift+n",
+        "command": "workbench.action.terminal.new"
+    },
+    {
+        "key": "ctrl+shift+k",
+        "command": "workbench.action.terminal.focusPrevious"
+    },
+    {
+        "key": "ctrl+shift+m",
+        "command": "workbench.action.terminal.focusNext"
+    },
+    {
+        "key": "ctrl+shift+w",
+        "command": "workbench.action.terminal.kill"
+    },
+
+    // FILE TREE
+    {
+        // if focus IS NOT in sidebar: toggle sidebar, focus sidebar
+        "key": "ctrl+0",
+        "command": "runCommands",
+        "args": {
+            "commands": [
+                "workbench.action.toggleSidebarVisibility",
+                "workbench.action.focusSideBar",
+            ]
+        },
+        "when": "!sideBarFocus"
+    },
+    {
+        // if focus IS in sidebar: focus editor, toggle sidebar
+        "key": "ctrl+0",
+        "command": "runCommands",
+        "args": {
+            "commands": [
+                "workbench.action.focusActiveEditorGroup",
+                "workbench.action.toggleSidebarVisibility",
+            ]
+        },
+        "when": "sideBarFocus"
+    },
+    {
+        "key": "r",
+        "command": "renameFile",
+        "when": "filesExplorerFocus" // True if File Explorer section has keyboard focus
+    },
+    {
+        "key": "n",
+        "command": "explorer.newFile",
+        "when": "filesExplorerFocus" // True if File Explorer section has keyboard focus
+    },
+    {
+        "key": "shift+n",
+        "command": "explorer.newFolder",
+        "when": "filesExplorerFocus" // True if File Explorer section has keyboard focus
+    },
+    {
+        "key": "d",
+        "command": "deleteFile",
+        "when": "filesExplorerFocus" // True if File Explorer section has keyboard focus
+    }
+]
