@@ -18,7 +18,7 @@
         "command": "workbench.action.terminal.focusNext"
     },
     {
-        "key": "ctrl+shift+w",
+        "key": "ctrl+shift+b",
         "command": "workbench.action.terminal.kill"
     },
 
