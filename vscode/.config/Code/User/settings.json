@@ -1,5 +1,5 @@
 {
-    "workbench.colorTheme": "Best Themes - Gruvbox Material Dark",
+    "workbench.colorTheme": "Best Themes - Gruvbox Dark",
 
     "editor.fontFamily": "JetBrainsMono Nerd Font",
     "editor.fontLigatures": true,
@@ -42,5 +42,6 @@
         // toggle comments
         { "before": ["leader", "c"], "commands": ["editor.action.commentLine"]},
     ],
+    "telemetry.telemetryLevel": "off",
 
 }
