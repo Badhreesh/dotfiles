@@ -2,7 +2,7 @@
     "workbench.colorTheme": "Best Themes - Gruvbox Dark",
     "editor.lineNumbers": "relative",
     "editor.minimap.enabled": false,
-
+    "editor.fontLigatures": true,
     "vim.leader": "<Space>",
     "vim.normalModeKeyBindingsNonRecursive": [
         // NAVIGATION
@@ -38,4 +38,5 @@
         // toggle comments
         { "before": ["leader", "c"], "commands": ["editor.action.commentLine"]},
     ],
+    "editor.fontFamily": "JetBrainsMono Nerd Font",
 }
