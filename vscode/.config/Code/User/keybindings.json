@@ -48,22 +48,22 @@
         "when": "sideBarFocus"
     },
     {
-        "key": "r",
+        "key": "ctrl+r",
         "command": "renameFile",
         "when": "filesExplorerFocus" // True if File Explorer section has keyboard focus
     },
     {
-        "key": "n",
+        "key": "ctrl+n",
         "command": "explorer.newFile",
         "when": "filesExplorerFocus" // True if File Explorer section has keyboard focus
     },
     {
-        "key": "shift+n",
+        "key": "ctrl+shift+n",
         "command": "explorer.newFolder",
         "when": "filesExplorerFocus" // True if File Explorer section has keyboard focus
     },
     {
-        "key": "d",
+        "key": "ctrl+d",
         "command": "deleteFile",
         "when": "filesExplorerFocus" // True if File Explorer section has keyboard focus
     }

@@ -21,10 +21,10 @@
         //{ "before": ["leader", "e"], "commands": [":q!"]},
 
         // jump b/w panes
-        { "before": ["leader", "h"], "commands": ["workbench.action.focusleftgroup"]},
-        { "before": ["leader", "j"], "commands": ["workbench.action.focusbelowgroup"]},
-        { "before": ["leader", "k"], "commands": ["workbench.action.focusabovegroup"]},
-        { "before": ["leader", "l"], "commands": ["workbench.action.focusrightgroup"]},
+        { "before": ["leader", "h"], "commands": ["workbench.action.focusLeftGroup"]},
+        { "before": ["leader", "j"], "commands": ["workbench.action.focusBelowGroup"]},
+        { "before": ["leader", "k"], "commands": ["workbench.action.focusAboveGroup"]},
+        { "before": ["leader", "l"], "commands": ["workbench.action.focusRightGroup"]},
 
         //quick open files
         { "before": ["leader", "f"], "commands": ["workbench.action.quickOpen"]},
@@ -36,5 +36,4 @@
         // toggle comments
         { "before": ["leader", "c"], "commands": ["editor.action.commentLine"]},
     ]
-
 }
