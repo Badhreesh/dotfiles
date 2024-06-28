@@ -77,4 +77,10 @@
         "command": "editor.action.showHover",
         "when": "editorHasSignatureHelpProvider && editorTextFocus"
     },
+    
+    // Run python file in terminal
+    {
+        "key": "shift+space",
+        "command": "python.execInTerminal"
+    },
 ]
