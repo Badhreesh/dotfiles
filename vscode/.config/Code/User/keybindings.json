@@ -1,6 +1,6 @@
 // Place your key bindings in this file to override the defaults
 [
-    // TERMINAL
+    // Terminal
     {
         "key": "ctrl+shift+j",
         "command": "workbench.action.terminal.toggleTerminal"
@@ -22,7 +22,7 @@
         "command": "workbench.action.terminal.kill"
     },
 
-    // FILE TREE
+    // File Tree
     {
         // if focus IS NOT in sidebar: toggle sidebar, focus sidebar
         "key": "ctrl+0",
@@ -47,8 +47,10 @@
         },
         "when": "sideBarFocus"
     },
-    {// filesExplorerFocus is True when File Explorer has keyboard focus
-     // !inputFocus prevents letters from triggering their mapping when creating/renaming files 
+
+    // filesExplorerFocus is True when File Explorer has keyboard focus
+    // !inputFocus prevents letters from triggering their mapping when creating/renaming files 
+    {
         "key": "r",
         "command": "renameFile",
         "when": "filesExplorerFocus && !inputFocus" 
@@ -67,5 +69,12 @@
         "key": "d",
         "command": "deleteFile",
         "when": "filesExplorerFocus && !inputFocus"
-    }
+    },
+
+    // show function info on hover
+    {
+        "key": "shift+k",
+        "command": "editor.action.showHover",
+        "when": "editorHasSignatureHelpProvider && editorTextFocus"
+    },
 ]
