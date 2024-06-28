@@ -47,24 +47,25 @@
         },
         "when": "sideBarFocus"
     },
-    {
-        "key": "ctrl+r",
+    {// filesExplorerFocus is True when File Explorer has keyboard focus
+     // !inputFocus prevents letters from triggering their mapping when creating/renaming files 
+        "key": "r",
         "command": "renameFile",
-        "when": "filesExplorerFocus" // True if File Explorer section has keyboard focus
+        "when": "filesExplorerFocus && !inputFocus" 
     },
     {
-        "key": "ctrl+n",
+        "key": "n",
         "command": "explorer.newFile",
-        "when": "filesExplorerFocus" // True if File Explorer section has keyboard focus
+        "when": "filesExplorerFocus && !inputFocus"
     },
     {
-        "key": "ctrl+shift+n",
+        "key": "shift+n",
         "command": "explorer.newFolder",
-        "when": "filesExplorerFocus" // True if File Explorer section has keyboard focus
+        "when": "filesExplorerFocus && !inputFocus"
     },
     {
-        "key": "ctrl+d",
+        "key": "d",
         "command": "deleteFile",
-        "when": "filesExplorerFocus" // True if File Explorer section has keyboard focus
+        "when": "filesExplorerFocus && !inputFocus"
     }
 ]
