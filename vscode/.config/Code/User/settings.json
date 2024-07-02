@@ -37,6 +37,9 @@
         // toggle comments
         {"before": ["leader", "c"], "commands": ["editor.action.commentLine"]},
 
+        // git hunk preview
+        {"before": ["leader", "p"], "commands": ["editor.action.dirtydiff.next"]},
+
     ],
 
     "vim.visualModeKeyBindings": [
