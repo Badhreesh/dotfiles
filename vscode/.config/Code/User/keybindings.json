@@ -2,10 +2,6 @@
 [
     // Terminal
     {
-        "key": "ctrl+shift+j",
-        "command": "workbench.action.terminal.toggleTerminal"
-    },
-    {
         "key": "ctrl+shift+n",
         "command": "workbench.action.terminal.new"
     },
@@ -20,6 +16,22 @@
     {
         "key": "ctrl+shift+b",
         "command": "workbench.action.terminal.kill"
+    },
+    {
+        "key": "ctrl+j",
+        "command": "workbench.action.terminal.focus"
+    },
+    {
+        // close terminal and go to editor
+        "key": "ctrl+k",
+        "command": "runCommands",
+        "args": {
+            "commands": [
+                "workbench.action.terminal.toggleTerminal",
+                "workbench.action.focusActiveEditorGroup"
+            ]
+        },
+        "when": "terminalFocus"
     },
 
     // File Tree
@@ -82,5 +94,5 @@
     {
         "key": "shift+space",
         "command": "python.execInTerminal"
-    },
+    }
 ]
