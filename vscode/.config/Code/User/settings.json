@@ -1,15 +1,24 @@
 {
-    "workbench.colorTheme": "Best Themes - Gruvbox Dark",
+    "workbench.colorTheme": "Best Themes - Gruvbox Concoctis Dark",
     "workbench.iconTheme": "material-icon-theme",
 
+    "editor.detectIndentation": false,
     "editor.fontFamily": "JetBrainsMono Nerd Font",
     "editor.fontLigatures": true,
     "editor.fontSize": 18,
     "editor.lineNumbers": "relative",
     "editor.minimap.enabled": false,
+    "editor.suggest.insertMode": "replace", //insert suggestion and overwrite text
     "editor.wordWrap": "on",
-
+ 
     "vim.leader": "<Space>",
+    "vim.foldfix": true,
+    "vim.hlsearch": true,
+    "vim.useSystemClipboard": true,
+    "vim.highlightedyank.enable": true,
+    "vim.highlightedyank.color": "rgba(250, 240, 170, 0.2)",
+    "vim.highlightedyank.textColor": "white",
+    "vim.highlightedyank.duration": 100,
     "vim.normalModeKeyBindingsNonRecursive": [
         // NAVIGATION
         // switch b/w buffers
@@ -24,7 +33,7 @@
         {"before": ["leader", "q"], "commands": [":wq"]},
         // save
         {"before": ["leader", "w"], "commands": [":w"]},
-        // save without quitting
+        // quit without saving
         { "before": ["leader", "e"], "commands": [":q!"]},
 
         // jump b/w panes
@@ -40,7 +49,6 @@
 
         // git hunk preview
         {"before": ["leader", "p"], "commands": ["editor.action.dirtydiff.next"]},
-
     ],
 
     "vim.visualModeKeyBindings": [
@@ -48,5 +56,17 @@
         { "before": ["leader", "c"], "commands": ["editor.action.commentLine"]},
     ],
 
-    "telemetry.telemetryLevel": "off"
+    "telemetry.telemetryLevel": "off",
+
+    "projectManager.git.baseFolders": [
+        "/home/rao/projects/gp"
+    ],
+    "projectManager.sortList": "Recent",
+    "projectManager.any.ignoredFolders": [
+        "node_modules",
+        "out",
+        "typings",
+        "test",
+        ".*"
+    ],
 }
