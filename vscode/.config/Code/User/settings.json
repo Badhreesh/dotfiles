@@ -1,5 +1,5 @@
 {
-    "workbench.colorTheme": "Best Themes - Gruvbox Concoctis Dark",
+    "workbench.colorTheme": "Best Themes - Gruvbox NvChad",
     "workbench.iconTheme": "material-icon-theme",
 
     "editor.detectIndentation": false,
@@ -21,6 +21,7 @@
  
     "python.languageServer": "Pylance",
     "python.analysis.typeCheckingMode": "basic",
+    "python.analysis.autoImportCompletions": true,
 
     "vim.leader": "<Space>",
     "vim.foldfix": true,
@@ -81,4 +82,6 @@
         ".*"
     ],
     "extensions.ignoreRecommendations": true,
+    "explorer.confirmDragAndDrop": false,
+    "explorer.confirmDelete": false,
 }

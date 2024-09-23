@@ -87,7 +87,7 @@
 
     // Open project in new window
     {
-        "key": "ctrl+o",
+        "key": "ctrl+[",
         "command": "projectManager.listProjectsNewWindow"
     }
 ]
