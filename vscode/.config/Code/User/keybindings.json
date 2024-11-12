@@ -36,11 +36,11 @@
 
     // File Tree
     {
-        "key": "ctrl+e",
+        "key": "ctrl+m", // m - menu
         "command": "workbench.action.toggleSidebarVisibility",
     },
     {
-        "key": "ctrl+e",
+        "key": "ctrl+m",
         "command": "workbench.files.action.focusFilesExplorer",
         "when": "editorTextFocus"
     },
@@ -74,7 +74,7 @@
     },
     // show function info on hover
     {
-        "key": "shift+k",
+        "key": "ctrl+k",
         "command": "editor.action.showHover",
         "when": "editorHasSignatureHelpProvider && editorTextFocus"
     },
