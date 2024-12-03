@@ -74,7 +74,7 @@ for external_monitor in external_monitors:
         Screen(
             top=bar.Bar(
                 widgets=secondary_screen_widgets, size=24, background="#141415"
-            ),
+            ),  # Bar widget was not getting rendered on multi external monitor setup. The fix was https://github.com/qtile/qtile/pull/4613/files, which I implemented manually in bar.py as I didn't want to potentially introduce breaking changes... Maybe I should take time to update qtile instead of introducing this hotfix :)
             wallpaper=home + "/.config/qtile/walls/Kita_Philosophy.png",
             wallpaper_mode="fill",
         )
