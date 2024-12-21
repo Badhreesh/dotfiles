@@ -1,87 +1,102 @@
 {
-    "workbench.colorTheme": "Best Themes - Neovim",
-    "workbench.iconTheme": "material-icon-theme",
+  "workbench.colorTheme": "Best Themes - Rose Noctis",
+  "workbench.iconTheme": "material-icon-theme",
 
-    "editor.detectIndentation": false,
-    "editor.fontFamily": "JetBrainsMono Nerd Font",
-    "editor.fontLigatures": true,
-    "editor.fontSize": 18,
+  "editor.detectIndentation": false,
+  "editor.fontFamily": "JetBrainsMono Nerd Font",
+  "editor.fontLigatures": true,
+  "editor.fontSize": 18,
 
-    "editor.formatOnSave": true,
-    "editor.defaultFormatter": "charliermarsh.ruff",
-    "editor.codeActionsOnSave": {
-        "source.fixAll": "explicit", // fix lint violations on save
-        "source.organizeImports": "explicit" // organize imports on save
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "charliermarsh.ruff",
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "explicit", // fix lint violations on save
+    "source.organizeImports": "explicit" // organize imports on save
+  },
+
+  "editor.lineNumbers": "relative",
+  "editor.minimap.enabled": false,
+  "editor.suggest.insertMode": "replace", //insert suggestion and overwrite text
+  "editor.wordWrap": "on",
+
+  "python.languageServer": "Pylance",
+  "python.analysis.typeCheckingMode": "basic",
+  "python.analysis.autoImportCompletions": true,
+
+  "vim.foldfix": true,
+  "vim.hlsearch": true,
+  "vim.leader": "<Space>",
+  "vim.useSystemClipboard": true,
+  "vim.highlightedyank.enable": true,
+  "vim.highlightedyank.color": "rgba(250, 240, 170, 0.2)",
+  "vim.highlightedyank.textColor": "white",
+  "vim.highlightedyank.duration": 100,
+  "vim.matchpairs": "(:),{:},[:],<:>",
+  "vim.normalModeKeyBindingsNonRecursive": [
+    // NAVIGATION
+    // switch b/w buffers
+    { "before": ["<S-h>"], "commands": [":bprevious"] },
+    { "before": ["<S-l>"], "commands": [":bnext"] },
+
+    // splits
+    { "before": ["leader", "v"], "commands": [":vsplit"] },
+    { "before": ["leader", "s"], "commands": [":split"] },
+
+    // save and quit
+    { "before": ["leader", "q"], "commands": [":wq"] },
+    // save
+    { "before": ["leader", "w"], "commands": [":w"] },
+    // quit without saving
+    { "before": ["leader", "e"], "commands": [":q!"] },
+
+    // jump b/w panes
+    {
+      "before": ["leader", "h"],
+      "commands": ["workbench.action.focusLeftGroup"]
+    },
+    {
+      "before": ["leader", "j"],
+      "commands": ["workbench.action.focusBelowGroup"]
+    },
+    {
+      "before": ["leader", "k"],
+      "commands": ["workbench.action.focusAboveGroup"]
+    },
+    {
+      "before": ["leader", "l"],
+      "commands": ["workbench.action.focusRightGroup"]
     },
 
-    "editor.lineNumbers": "relative",
-    "editor.minimap.enabled": false,
-    "editor.suggest.insertMode": "replace", //insert suggestion and overwrite text
-    "editor.wordWrap": "on",
- 
-    "python.languageServer": "Pylance",
-    "python.analysis.typeCheckingMode": "basic",
-    "python.analysis.autoImportCompletions": true,
+    //quick open files
+    { "before": ["leader", "f"], "commands": ["workbench.action.quickOpen"] },
+    // toggle comments
+    { "before": ["leader", "c"], "commands": ["editor.action.commentLine"] },
 
-    "vim.leader": "<Space>",
-    "vim.foldfix": true,
-    "vim.hlsearch": true,
-    "vim.useSystemClipboard": true,
-    "vim.highlightedyank.enable": true,
-    "vim.highlightedyank.color": "rgba(250, 240, 170, 0.2)",
-    "vim.highlightedyank.textColor": "white",
-    "vim.highlightedyank.duration": 100,
-    "vim.normalModeKeyBindingsNonRecursive": [
-        // NAVIGATION
-        // switch b/w buffers
-        {"before": ["<S-h>"], "commands": [":bprevious"]},
-        {"before": ["<S-l>"], "commands": [":bnext"]},
-        
-        // splits
-        {"before": ["leader", "v"], "commands": [":vsplit"]},
-        {"before": ["leader", "s"], "commands": [":split"]},
+    // git hunk preview
+    { "before": ["leader", "p"], "commands": ["editor.action.dirtydiff.next"] }
+  ],
 
-        // save and quit
-        {"before": ["leader", "q"], "commands": [":wq"]},
-        // save
-        {"before": ["leader", "w"], "commands": [":w"]},
-        // quit without saving
-        { "before": ["leader", "e"], "commands": [":q!"]},
+  "vim.visualModeKeyBindings": [
+    // toggle comments
+    { "before": ["leader", "c"], "commands": ["editor.action.commentLine"] }
+  ],
 
-        // jump b/w panes
-        {"before": ["leader", "h"], "commands": ["workbench.action.focusLeftGroup"]},
-        {"before": ["leader", "j"], "commands": ["workbench.action.focusBelowGroup"]},
-        {"before": ["leader", "k"], "commands": ["workbench.action.focusAboveGroup"]},
-        {"before": ["leader", "l"], "commands": ["workbench.action.focusRightGroup"]},
+  "telemetry.telemetryLevel": "off",
 
-        //quick open files
-        {"before": ["leader", "f"], "commands": ["workbench.action.quickOpen"]},
-        // toggle comments
-        {"before": ["leader", "c"], "commands": ["editor.action.commentLine"]},
-
-        // git hunk preview
-        {"before": ["leader", "p"], "commands": ["editor.action.dirtydiff.next"]},
-    ],
-
-    "vim.visualModeKeyBindings": [
-        // toggle comments
-        { "before": ["leader", "c"], "commands": ["editor.action.commentLine"]},
-    ],
-
-    "telemetry.telemetryLevel": "off",
-
-    "projectManager.git.baseFolders": [
-        "/home/rao/projects/gp"
-    ],
-    "projectManager.sortList": "Recent",
-    "projectManager.any.ignoredFolders": [
-        "node_modules",
-        "out",
-        "typings",
-        "test",
-        ".*"
-    ],
-    "extensions.ignoreRecommendations": true,
-    "explorer.confirmDragAndDrop": false,
-    "explorer.confirmDelete": false,
+  "projectManager.git.baseFolders": ["/home/rao/projects/gp"],
+  "projectManager.sortList": "Recent",
+  "projectManager.any.ignoredFolders": [
+    "node_modules",
+    "out",
+    "typings",
+    "test",
+    ".*"
+  ],
+  "extensions.ignoreRecommendations": true,
+  "explorer.confirmDragAndDrop": false,
+  "explorer.confirmDelete": false,
+"liveServer.settings.donotShowInfoMsg": true,
+"[html][javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode" // Set Prettier as default formatter
+},
 }
