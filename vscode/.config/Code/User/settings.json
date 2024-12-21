@@ -93,6 +93,7 @@
     ".*"
   ],
   "extensions.ignoreRecommendations": true,
+  "explorer.compactFolders": false, // Prevent single child folder showing up on the side of parent folder
   "explorer.confirmDragAndDrop": false,
   "explorer.confirmDelete": false,
 "liveServer.settings.donotShowInfoMsg": true,
