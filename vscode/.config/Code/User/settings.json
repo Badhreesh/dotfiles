@@ -1,13 +1,11 @@
 {
-  "workbench.colorTheme": "Best Themes - Rose Noctis",
+  "workbench.colorTheme": "Best Themes - Gruvbox Material Dark",
   "workbench.iconTheme": "material-icon-theme",
 
   "editor.detectIndentation": false,
   "editor.fontFamily": "JetBrainsMono Nerd Font",
   "editor.fontLigatures": true,
   "editor.fontSize": 18,
-
-  "editor.formatOnSave": true,
   "editor.defaultFormatter": "charliermarsh.ruff",
   "editor.codeActionsOnSave": {
     "source.fixAll": "explicit", // fix lint violations on save
@@ -96,8 +94,21 @@
   "explorer.compactFolders": false, // Prevent single child folder showing up on the side of parent folder
   "explorer.confirmDragAndDrop": false,
   "explorer.confirmDelete": false,
-"liveServer.settings.donotShowInfoMsg": true,
-"[html][javascript]": {
+  "liveServer.settings.donotShowInfoMsg": true,
+  "[html][javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode" // Set Prettier as default formatter
-},
+    },
+    "editor.formatOnSave": true,
+    "editor.largeFileOptimizations": false,
+    "[javascriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+  "[go]": {
+    "editor.defaultFormatter": "golang.go",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+        "source.organizeImports": "explicit"
+    }
+  }
+
 }
